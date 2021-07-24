@@ -1,4 +1,4 @@
-package com.lodging.domain;
+package com.lodging.base;
 
 import org.apache.log4j.Logger;
 

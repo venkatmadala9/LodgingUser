@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.hibernate.engine.spi.CascadeStyle;
 
+import com.lodging.base.AbstractAuditableEntity;
+
 @Entity
 @Table(name="ROLE_CAPABILITY")
 public class RoleCapability 
@@ -23,7 +25,7 @@ extends AbstractAuditableEntity
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="id_sequence")
-	@SequenceGenerator(name="id_sequence", sequenceName="ROLE_CAPABILITY_ID_SEQ")
+	@SequenceGenerator(name="id_sequence", sequenceName="ROLE_CAPABILITY_SEQ")
 	private Long oid;
 	
 	@Column

@@ -12,9 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.lodging.base.AbstractAuditableEntity;
 
 
 @Entity
@@ -26,7 +30,7 @@ extends AbstractAuditableEntity
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="id_sequence")
-	@SequenceGenerator(name="id_sequence", sequenceName="ROLE_ID_SEQ")
+	@SequenceGenerator(name="id_sequence", sequenceName="ROLE_SEQ")
 	private Long oid;
 	
 	@Column
@@ -41,6 +45,13 @@ extends AbstractAuditableEntity
 	@Column
 	private String updatedBy;
 	
+	/*
+	 * @ManyToMany(cascade=CascadeType.ALL)
+	 * 
+	 * @JoinTable(name="USER_ROLE_X", joinColumns = { @JoinColumn(name="role_id") },
+	 * inverseJoinColumns = { @JoinColumn(name="user_id") } )
+	 */
+	@ManyToMany(cascade=CascadeType.ALL)
 	private Set<User> users = new HashSet<User>(0);
 	
 	@OneToMany(cascade = CascadeType.ALL)

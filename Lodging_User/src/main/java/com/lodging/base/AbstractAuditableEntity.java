@@ -1,4 +1,4 @@
-package com.lodging.domain;
+package com.lodging.base;
 
 import java.util.Date;
 
